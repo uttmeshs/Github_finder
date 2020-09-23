@@ -16,13 +16,14 @@ export class User extends Component {
   render() {
     const {
       name,
-      avator_url,
+      avatar_url,
       bio,
       blog,
       html_url,
       followers,
       following,
       login,
+      location,
       hireable,
     } = this.props.user;
 
@@ -40,6 +41,26 @@ export class User extends Component {
         ) : (
           <i className='fas fa-times-circle text-danger' />
         )}
+        <div className='card grid-2'>
+          <div className='all-center'>
+            <img
+              src={avatar_url}
+              className='round-img'
+              alt=''
+              style={{ width: "150px" }}
+            />
+            <h1>{name} </h1>
+            <p>Location: {location}</p>
+          </div>
+          <div>
+            {bio && (
+              <Fragment>
+                <h3>Bio</h3>
+                <p>{bio}</p>
+              </Fragment>
+            )}
+          </div>
+        </div>
       </Fragment>
     );
   }
